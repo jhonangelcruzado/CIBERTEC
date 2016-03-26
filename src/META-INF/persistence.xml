@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://java.sun.com/xml/ns/persistence" >
+
+	<persistence-unit name="JSF">
+		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+		<class>entities.Cliente</class>
+		<class>entities.Pais</class>
+		<class>entities.TipoDocumento</class>
+		<properties>
+			<property name="eclipselink.jdbc.driver" value="com.mysql.jdbc.Driver"></property>
+			<property name="eclipselink.jdbc.url" value="jdbc:mysql://localhost:3306/hotel_el_libertador"></property>
+			<property name="eclipselink.jdbc.user" value="root"></property>
+			<property name="eclipselink.jdbc.password" value="mysql"></property>
+		</properties>
+		
+	</persistence-unit>
+
+</persistence>

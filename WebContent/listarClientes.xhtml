@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+
+<h:head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<title>INSPINIA | Basic Form</title>
+
+	<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+	<link href="font-awesome/css/font-awesome.css" rel="stylesheet"
+		type="text/css" />
+	<link href="css/plugins/iCheck/custom.css" rel="stylesheet"
+		type="text/css" />
+	<link href="css/animate.css" rel="stylesheet" type="text/css" />
+	<link href="css/style.css" rel="stylesheet" type="text/css" />
+
+	<link
+		href="css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css"
+		rel="stylesheet" type="text/css" />
+</h:head>
+<h:body>
+	<h:form>
+		<div class="ibox float-e-margins">
+			<div class="ibox-title">
+				<h1 class="control-label">Listado de Clientes</h1>
+				<div class="ibox-tools">
+					<h:commandLink value="Nuevo Cliente" styleClass="btn btn-primary btn-sm" action="agregar-cliente.xhtml"></h:commandLink>
+				</div>
+			</div>
+			<div class="ibox-content">
+				<h:dataTable styleClass="table table-bordered" value="#{clienteController.listaClientes}" var="c">
+					<h:column>
+						<f:facet name="header">Código</f:facet>
+						<h:outputText value="#{c.idCliente}"></h:outputText>
+					</h:column>
+					<h:column>
+						<f:facet name="header">Nombres</f:facet>
+						<h:outputText value="#{c.nombres}"></h:outputText>
+					</h:column>
+					<h:column>
+						<f:facet name="header">Apellidos</f:facet>
+						<h:outputText value="#{c.apellidos}"></h:outputText>
+					</h:column>
+					<h:column>
+						<f:facet name="header">Tipo de Documento</f:facet>
+						<h:outputText value="#{c.tipodocumento.documento}"></h:outputText>
+					</h:column>
+					<h:column>
+						<f:facet name="header">N° Documento</f:facet>
+						<h:outputText value="#{c.nroDocumento}"></h:outputText>
+					</h:column>
+					<h:column>
+						<f:facet name="header">Pais</f:facet>
+						<h:outputText value="#{c.pais.pais}"></h:outputText>
+					</h:column>
+					<h:column>
+						<f:facet name="header">Actions</f:facet>
+						<h:commandLink styleClass="btn btn-white btn-sm" action="agregar-cliente.xhtml" actionListener="#{clienteController.buscar}">
+							<i class="fa fa-pencil"></i>
+							Modificar
+							<f:attribute name="idCliente" value="#{c.idCliente}"></f:attribute>
+						</h:commandLink>
+						<h:commandLink style="margin-left:10px;" styleClass="btn btn-white btn-sm">
+							<i class="fa fa-trash"></i>
+							Eliminar
+						</h:commandLink>
+					</h:column>
+				</h:dataTable>
+				<h:commandLink value="Nuevo Cliente" styleClass="btn btn-primary" action="agregar-cliente.xhtml"></h:commandLink>
+			</div>
+		</div>
+
+	</h:form>
+</h:body>
+</html>
